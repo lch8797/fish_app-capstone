@@ -1,0 +1,50 @@
+        public void onResults(Bundle results) {
+            // 인식 결과가 준비되면 호출
+            // 말을 하면 ArrayList에 단어를 넣고 textView에 단어를 이어줌
+            ArrayList<String> matches =
+                    results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+            String speakfishname = String.join("", matches);
+
+            for(int i = 0; i < matches.size() ; i++){
+                if(speakfishname.contains("고") && speakfishname.contains("등") && speakfishname.contains("어") ) {
+                    Intent intent = new Intent(getApplicationContext(),SearchActivity.class);
+                    startActivity(intent);
+                    break;
+                }
+            }
+            for(int i = 0; i < matches.size() ; i++){
+                if((speakfishname.contains("참") || speakfishname.contains("창")) && (speakfishname.contains("돔") || speakfishname.contains("동")) ) {
+                    Intent intent = new Intent(getApplicationContext(),Result5Activity.class);
+                    startActivity(intent);
+                    break;
+                }
+            }
+            for(int i = 0; i < matches.size() ; i++){
+                if(speakfishname.contains("아") &&( speakfishname.contains("귀")) || speakfishname.contains("기")){
+                    Intent intent = new Intent(getApplicationContext(),Result4Activity.class);
+                    startActivity(intent);
+                    break;
+                }
+            }
+            for(int i = 0; i < matches.size() ; i++){
+                if(speakfishname.contains("광") && speakfishname.contains("어") ) {
+                    Intent intent = new Intent(getApplicationContext(),Result3Activity.class);
+                    startActivity(intent);
+                    break;
+                }
+            }
+            for(int i = 0; i < matches.size() ; i++){
+                if(speakfishname.contains("우") && speakfishname.contains("럭") ) {
+                    Intent intent = new Intent(getApplicationContext(),Result2Activity.class);
+                    startActivity(intent);
+                    break;
+                }
+            }
+
+            /*
+            for(int i = 0; i < matches.size() ; i++){
+                textView.setText(matches.get(i));
+                Toast.makeText(getApplicationContext(), speakfishname,Toast.LENGTH_SHORT).show();
+            }*/
+
+        }
