@@ -1,0 +1,31 @@
+ btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText editText = (EditText)findViewById(R.id.searchWord);
+                String fishname = editText.getText().toString();
+
+                String firstfish = "고등어"; //고등어
+                String secondfish = "참돔"; //참돔
+                String thirdfish = "아귀"; //아귀
+                String fourthfish = "광어"; //광어
+                String fivefish = "우럭"; //북어
+                if(fishname.equals(firstfish)){
+                    Intent intent = new Intent(getApplicationContext(),SearchActivity.class);
+                    startActivity(intent);
+                } else if (fishname.equals((secondfish))) {
+                    Intent intent = new Intent(getApplicationContext(),Result5Activity.class);
+                    startActivity(intent);
+                } else if (fishname.equals((thirdfish))) {
+                    Intent intent = new Intent(getApplicationContext(),Result4Activity.class);
+                    startActivity(intent);
+                } else if (fishname.equals((fourthfish))) {
+                    Intent intent = new Intent(getApplicationContext(),Result3Activity.class);
+                    startActivity(intent);
+                } else if (fishname.equals((fivefish))) {
+                    Intent intent = new Intent(getApplicationContext(),Result2Activity.class);
+                    startActivity(intent);
+                } else{
+                    Toast.makeText(getApplicationContext(), "찾고자 하는 물고기가 없습니다ㅠㅠ", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
